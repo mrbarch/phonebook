@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="input">
+            <label for="user">Имя</label>
+            <input type="text" id="inputName" name="user">
+        </div>
+        <div class="input">
+            <label for="phone">Телефон</label>
+            <input type="number" id="inputPhone" name="phone">
+        </div>
+        <form name="demoForm">
+            <select name="demoSelect" onchange="showTag()">
+                <option></option>
+                <option value="1" class="tags" id="college">коллеги по роботе</option>
+                <option value="2" class="tags" id="family">член семьи</option>
+                <option value="3" class="tags" id='relative'>родственник</option>
+                <option value="4" class="tags" id="familiar">знакомый</option>
+                <option value="5" class="tags" id="friend">друг</option>
+                <option value="6" class="tags" id="bestFriend">лучший друг</option>
+                <option value="7" class="tags" id="neighbour">сосед</option>
+                <option value="8" class="tags" id="brother">брат</option>
+            </select>
+        </form>
+        <button class="button" id="add">Добавить</button>
+        <input type="text" class="searchUsers">
+        <div class="count">0</div>
+    </div>
+    <div class="container">
+
+    </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
