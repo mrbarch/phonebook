@@ -104,9 +104,10 @@ function findDublicate() {
 
 function showTag() {
 	let theSelect = demoForm.demoSelect;
-	let thirdP = document.getElementsByClassName('personTag');
-	thirdP.innerHTML = (theSelect[theSelect.selectedIndex].text);
-
-	return thirdP;
+	let tag = document.querySelectorAll('personTag');
+	tag.innerHTML = (theSelect[theSelect.selectedIndex].text);
+	let d = Array.from(tag);
+	
+	return d;
 }
 
