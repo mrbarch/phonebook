@@ -3,7 +3,7 @@ const inputPhone = document.getElementById('inputPhone');
 const add = document.getElementById('add');
 const searchUsers = document.querySelector('.searchUsers');
 const selectTag = document.querySelector('.select');
-const options = document.querySelectorAll('option')
+const options = document.querySelectorAll('option');
 let users = [];
 
 function addContact() {
@@ -12,11 +12,13 @@ function addContact() {
 
 		return;
 	}
+
 	if (findDublicate()) {
 		alert('такой номер уже существует! Проверьте ваши данные.');
 
 		return;
 	}
+
 	pushContact();
 }
 
@@ -24,13 +26,11 @@ function pushContact() {
 	users.push({
 		name: inputName.value,
 		phone: inputPhone.value,
-		tag: showTag(),
+		tag: contactForm.tag.value,
 	});
 
 	renderContacts();
 }
-
-console.log(users)
 
 function renderContacts() {
 	const content = document.querySelector('.container');
@@ -50,18 +50,18 @@ function renderContacts() {
 		const personPhone = document.createElement('div');
 		const personWrap = document.createElement('div');
 		const deleteBtn = document.createElement('button');
-		const personTag = document.createElement('div')
+		const personTag = document.createElement('div');
 
 		personName.classList.add('personName');
 		personPhone.classList.add('personPhone');
 		personWrap.classList.add('personWrap');
 		deleteBtn.classList.add('deleteBtn');
-		personTag.classList.add('personTag')
+		personTag.classList.add('personTag');
 		
 		content.appendChild(personWrap);
 		personWrap.appendChild(personName);
 		personWrap.appendChild(personPhone);
-		personWrap.appendChild(personTag)
+		personWrap.appendChild(personTag);
 		personWrap.appendChild(deleteBtn);
 
 		deleteUser(deleteBtn, user);
@@ -70,18 +70,12 @@ function renderContacts() {
 		personPhone.innerHTML = user.phone;
 		personTag.innerHTML = user.tag; 
 		deleteBtn.innerHTML = 'Удалить';
-
 	}
 }
 
-add.addEventListener('click', function() {
-	addContact();
-	showTag()
-});
+add.addEventListener('click', addContact);
 
-searchUsers.addEventListener('input', function() {
-	renderContacts()
-});
+searchUsers.addEventListener('input', renderContacts);
 
 function deleteUser(deleteBtn, user) {
 	deleteBtn.addEventListener('click', () => {
@@ -101,13 +95,3 @@ function findDublicate() {
 
 	return users.find(user => user.phone.includes(phone));
 }
-
-function showTag() {
-	let theSelect = demoForm.demoSelect;
-	let tag = document.querySelectorAll('options');
-	tag.innerHTML = (theSelect[theSelect.selectedIndex].text);
-	let d = Array.from(tag);
-	
-	return d;
-}
-
